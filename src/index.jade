@@ -1,0 +1,105 @@
+extends ./partials/layout.jade
+
+block title
+  title Article Title
+
+block content
+  h2 Introduction
+  p This exploration of flexbox is aimed at developers. I'll try to give a good sense of what is going on with the markup and styles. Dev tools are your friend. Also, feel free to fork on Github and play around.
+
+  h2 Without flexbox
+  p Let's start with a totally bare example. In the box below are three divs. As expected, we can't see them. They've collapsed totally because they are empty and we haven't set any dimensions. But through the magic of flexbox...
+  .container
+    .first
+    .second
+    .third
+
+  h2 With flexbox
+  p ... We still get nothing. That was less exciting than we were hoping. But it does illustrate what flex does not do.
+  .container.flex
+    .first
+    .second
+    .third
+
+  h2 Adding flex-grow to all divs
+  p Alright, we've added <code>flex-grow: 1</code> to each of our divs and we're actually getting somewhere.
+  .container.flex
+    .first.grow
+    .second.grow
+    .third.grow
+
+  h2 Flex grow on some?
+  p If we only add <code>flex-grow</code> to two of our divs, the other one disappears, which is (probably) not what we want.
+  .container.flex
+    .first.grow
+    .second
+    .third.grow
+
+  h2 What about adding width?
+  p We add <code>width</code> to div two and it's back.
+  .container.flex
+    .first.grow
+    .second.width-small
+    .third.grow
+
+  h2 What about adding width <em>and</em> flex-grow?
+  p That got weird. It looks like the middle div is getting its fixed width <em>plus</em> its share of the remaing width split evenly three ways. <strong>Don't mix flex-grow and width</strong>.
+  .container.flex
+    .first.grow
+    .second.grow.width-small
+    .third.grow
+
+  p <code>min-width</code> with flex-grow is weird too.
+  .container.flex
+    .first.grow
+    .second.grow.min-width-small
+    .third.grow
+
+  p <code>max-width</code> seems to work fine, though.
+  .container.flex
+    .first.grow
+    .second.grow.max-width-small
+    .third.grow
+
+  h2 Let's try a three column layout
+  p fixed - fluid - fixed, full height. Boom. Holy grail layout.
+  .container.flex
+    .first.width-small
+    .second.grow
+    .third.width-small
+
+  p Responsive and everything...
+  .container.flex.short
+    .first.width-small
+    .second.grow
+    .third.width-small
+
+  p ... Until we put some content in our middle div...
+  .container.flex.short
+    .first.width-small
+    .second.grow
+      .fourth.inner.width-medium
+    .third.width-small
+
+  h2 Min-width to the rescue?
+  p Not so much. Ugh.
+  .container.flex.short
+    .first.width-small.min-width-small
+    .second.grow
+      .fourth.inner.width-medium
+    .third.width-small.min-width-small
+
+  h2 Let flex-shrink this thing
+  p Really? Nothing? But why? Well, it looks like we can't shrink things below their contents. 
+  .container.flex.short
+    .first.width-small.min-width-small
+    .second.grow.shrink
+      .fourth.inner.width-medium
+    .third.width-small.min-width-small
+
+  p Some overflow: auto action, though? That does it.
+  .container.flex.short
+    .first.width-small.min-width-small
+    .second.grow.overflow
+      .fourth.inner.width-medium
+    .third.width-small.min-width-small

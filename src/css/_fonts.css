@@ -1,0 +1,30 @@
+h1, h2, h3, p, blockquote, pre {
+  font-family: 'Segoe UI', Frutiger, 'Frutiger Linotype', 'Dejavu Sans', 'Helvetica Neue', Arial, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+}
+
+h1, h2, h3 {
+  line-height: 1.1;
+  font-weight: 500;
+}
+
+p, blockquote, pre {
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+strong {
+  font-weight: 800;
+}
+
+em {
+  font-style: italic;
+}
+
+h1 { font-size: 1.5em; }
+h2 { font-size: 1.2em; }
+h3 { font-size: 1em; }
+p { font-size: 1em; }
+blockquote { font-size: 21px; }
+pre { font-size: 13px; }

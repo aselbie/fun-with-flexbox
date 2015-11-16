@@ -1,0 +1,65 @@
+@import "reset";
+@import "fonts";
+
+$so-small: 20px;
+$smallest: 40px;
+$small: 100px;
+$medium: 300px;
+$large: 500px;
+
+$color1: #db2b39;
+$color2: #29335c;
+$color3: #f3a712;
+$color4: #f0cea0;
+$color5: #534d41;
+
+header {
+  padding: 1em;
+  background-color: #333;
+  color: #fff;
+}
+
+.wrapper {
+  max-width: $large;
+  margin: 0 auto;
+
+  h2, p, .container {
+    margin-bottom: 0.5em;
+  }
+
+  h2 {
+    margin-top: 2em;
+  }
+
+  .container {
+    width: 100%;
+    height: $smallest;
+    display: flex;
+    border: 1px solid #666;
+
+    &.short { width: 70%; }
+    &.shorter { width: 40%; }
+
+    .first { background-color: $color1; }
+    .second { background-color: $color2; }
+    .third { background-color: $color3; }
+    .fourth { background-color: $color4; }
+    .fifth { background-color: $color5; }
+
+    .width-small { width: $small }
+    .max-width-small { max-width: $small }
+    .min-width-small { min-width: $small }
+    .width-medium { width: $medium }
+
+    .flex { display: flex; }
+    .grow { flex-grow: 1 }
+    .shrink { flex-shrink: 1; }
+    .basis { flex-basis: $small; }
+    .overflow { overflow: auto; }
+
+    .inner {
+      height: $so-small;
+      margin: 10px;
+    }
+  }
+}
